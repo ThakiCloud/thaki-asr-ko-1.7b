@@ -26,16 +26,21 @@ The R1 run used a Korean mixture (by sample count): **telephony 65% / Kspon 20%
 
 | Component | Share | Source | Scale | Notes |
 |---|---|---|---|---|
-| Telephony / 상담 | 65% | KtelSpeech (AI Hub 012) | 133,651 utts / 200.0 h / 224 speakers | 8 kHz mobile-call audio, upsampled to 16 kHz; D60/D61/D62 partitions |
-| Kspon | 20% | KsponSpeech | 54,993 utts / 80.0 h | — |
-| General | 15% | Zeroth-Korean + a small preserved amount of Emilia-KO | (preserved) | held-out read/conversational Korean |
+| Telephony / 상담 | 65% | AI-Hub **상담 음성** (dataSetSn 100, distributed as KtelSpeech) | 133,651 utts / 200.0 h / 224 speakers | 8 kHz mobile-call audio, upsampled to 16 kHz; D60/D61/D62 partitions |
+| Kspon | 20% | AI-Hub **한국어 음성** (dataSetSn 123, distributed as KsponSpeech) | 54,993 utts / 80.0 h | — |
+| General | 15% | Zeroth-Korean (CC BY 4.0) + a small preserved amount of Emilia-YODAS Korean (CC BY 4.0) | (preserved) | held-out read/conversational Korean |
 
-**This is a composition description, not a data release.** The telephony
-(KtelSpeech) source is governed by AI Hub terms that make it **internal-only**:
-the original and derived data are not redistributed, uploaded, or exported.
-**No audio, transcripts, or metadata from any source are in this repository** —
-only the trained weights (on Hugging Face) and this recipe. Zeroth-Korean is
-CC BY 4.0.
+**This is a composition description, not a data release.** Both AI-Hub
+sources (상담 음성 and 한국어 음성) are governed by the AI-Hub terms of use,
+which allow the data to be used for training AI models and prohibit providing
+the data, or simple edits of it, to unapproved third parties. They are not
+redistributed, uploaded, or exported. **No audio, transcripts, or metadata from
+any source are in this repository** — only the trained weights (on Hugging
+Face) and this recipe. Zeroth-Korean and Emilia-YODAS (Korean subset of
+`amphion/Emilia-Dataset`, the CC BY 4.0 YODAS portion only) are CC BY 4.0.
+
+**Source attribution (required by the AI-Hub terms, which extend the
+requirement to derivative works):** 이 모델은 한국지능정보사회진흥원(NIA)의 사업결과인 AI-Hub "상담 음성", "한국어 음성" 데이터를 활용해 학습했습니다. *(This model was trained using the AI-Hub datasets "상담 음성" and "한국어 음성", which are results of a project of the National Information Society Agency (NIA), Korea.)*
 
 ## 3. Preprocessing contract
 

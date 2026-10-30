@@ -78,9 +78,10 @@ card.
 ## What is NOT in this repository (by policy)
 
 - **Model weights** — fetch them from the Hugging Face repo.
-- **No training audio, transcripts, metadata, or derived data** — the telephony
-  source (KtelSpeech, AI Hub 012) is internal-only under AI Hub terms and is not
-  redistributed; Zeroth-Korean is CC BY 4.0. The training corpora are described
+- **No training audio, transcripts, metadata, or derived data** — the AI-Hub
+  sources (상담 음성, dataSetSn 100; 한국어 음성, dataSetSn 123) are governed by
+  the AI-Hub terms of use and are not redistributed; Zeroth-Korean and
+  Emilia-YODAS are CC BY 4.0. The training corpora are described
   (composition, not content) in `docs/training-recipe.md`.
 - **No PII and no internal credentials.**
 - **No internal cluster configuration or storage paths.**
@@ -90,3 +91,5 @@ card.
 Code and weights: **Apache-2.0** (see `LICENSE`). The underlying training
 corpora are not provided and remain subject to their own, more restrictive
 terms; this repository does not grant a license to those corpora.
+
+**Source attribution (required by the AI-Hub terms):** 이 모델은 한국지능정보사회진흥원(NIA)의 사업결과인 AI-Hub "상담 음성", "한국어 음성" 데이터를 활용해 학습했습니다. *(This model was trained using the AI-Hub datasets "상담 음성" and "한국어 음성", which are results of a project of the National Information Society Agency (NIA), Korea.)*
