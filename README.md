@@ -68,9 +68,14 @@ selection rule.
 
 ### Evaluation
 
-`eval/num_match_v2.py` is the frozen number-robustness gate
-(`match_utterance_v2`); each file's `__main__` block runs positive/negative
-controls. The full gate set, thresholds, sets, and the "what 981 counts"
+`eval/num_match_v2.py` is the frozen number gate (`match_utterance_v2`); each
+file's `__main__` block runs positive/negative controls. It measures **numeric
+reference coverage with a notation bias**, not numeric accuracy: it recognizes
+Arabic-digit runs (with 만/천/억 expansion) and digit-by-digit Hangul runs, but
+not place-value numerals such as `오십이만`; a lone single digit without a unit
+is not scored; and extra hypothesis numbers are ignored. For notation-insensitive
+CER, use [kocer](https://pypi.org/project/kocer/) alongside it — the model card's
+2026-11-04 release audit reports both. The full gate set, thresholds, sets, and the "what 981 counts"
 explanation are on the model card (section 3 and 6) — the code is intentionally
 the frozen metric only; the pre-registered gate structure is described on the
 card.

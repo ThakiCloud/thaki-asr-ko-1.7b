@@ -28,7 +28,7 @@ The R1 run used a Korean mixture (by sample count): **telephony 65% / Kspon 20%
 |---|---|---|---|---|
 | Telephony / 상담 | 65% | AI-Hub **상담 음성** (dataSetSn 100, distributed as KtelSpeech) | 133,651 utts / 200.0 h / 224 speakers | 8 kHz mobile-call audio, upsampled to 16 kHz; D60/D61/D62 partitions |
 | Kspon | 20% | AI-Hub **한국어 음성** (dataSetSn 123, distributed as KsponSpeech) | 54,993 utts / 80.0 h | — |
-| General | 15% | Zeroth-Korean (CC BY 4.0) + a small preserved amount of Emilia-YODAS Korean (CC BY 4.0) | (preserved) | held-out read/conversational Korean |
+| General | 15% | Zeroth-Korean (CC BY 4.0) + a small preserved amount of Emilia-YODAS Korean (CC BY 4.0) | (preserved) | Zeroth-Korean **train** split — its sentences overlap the Step 5b TEST-C set (see below) |
 
 **This is a composition description, not a data release.** Both AI-Hub
 sources (상담 음성 and 한국어 음성) are governed by the AI-Hub terms of use,
@@ -66,6 +66,15 @@ before training.
   utterance is dropped from training (reported, not fatal). In a read corpus the
   same sentence can be read by a train speaker and an eval speaker; training on
   it would inflate the eval CER, so it is removed instead.
+
+> **Release-run note (audit 2026-11-04).** In the released training run this gate
+> was given the telephony DEV set only. The Step 5b general set TEST-C (Zeroth-Korean
+> test split) was built after training and was never passed to the gate, so its
+> sentences were not filtered: a seeded replay of the mix shows 454 of 456 TEST-C
+> sentences in the training mix. The B1 gate on TEST-C is therefore a no-regression
+> check, not a held-out measurement. Details are on the model card (release audit
+> in section 2). If you reproduce, pass every evaluation set you will report on to
+> `--eval`.
 
 ## 4. Hyperparameters
 
